@@ -15,9 +15,15 @@ function __init__()
             break
         end
     end
-    isempty(qgis_process) && @warn("qgis_process not detected.  You must explicitly set `QGIS.set_qgis_process_path(\"path/to/qgis_process\")`.")
+    isempty(qgis_process) && @warn("""
+    QGIS.jl did not automatically detect `qgis_process`.
+
+    You must explicitly set `QGIS.set_qgis_process_path("path/to/qgis_process")` for the package
+    to work.
+    """)
 end
 
+#-----------------------------------------------------------------------------# set_qgis_process_path
 function set_qgis_process_path(path::String)
     isfile(path) || error("Not found: $path")
     global qgis_process = path
@@ -26,17 +32,32 @@ function set_qgis_process_path(path::String)
     end
 end
 
+#-----------------------------------------------------------------------------# process
 function process(x...)
     io = IOBuffer()
-    cmd = pipeline(`$qgis_process --json $x`; stdout=io, stderr=devnull)
+    cmd = pipeline(`$qgis_process --json $x`; stdout=io, stderr=stderr)
     Base.run(cmd)
     JSON3.read(String(take!(io)))
 end
 
+#-----------------------------------------------------------------------------# help
+function help(alg::AbstractString)
+    @assert alg in algorithms
+    process("help", alg)
+end
+Base.propertynames(::typeof(help)) = Symbol.(algorithms)
+Base.getproperty(::typeof(help), alg_id::Symbol) = () -> help(string(alg_id))
+
 #-----------------------------------------------------------------------------# run
-run(algorithm_id::String, args...) = process("run", algorithm_id, args...)
+function run(alg::AbstractString, args::AbstractDict)
+    @assert alg in algorithms
+    process("run", alg, "--", ("$k=$v" for (k,v) in args)...)
+end
+run(alg::AbstractString; kw...) = run(alg, Dict(kw...))
 Base.propertynames(::typeof(run)) = Symbol.(algorithms)
 Base.getproperty(::typeof(run), alg_id::Symbol) = (x...) -> run(alg_id, x...)
 
+#-----------------------------------------------------------------------------# find_algorithm
+find_algorithm(txt) = filter(x -> occursin(txt, x), algorithms)
 
 end  # module QGIS
