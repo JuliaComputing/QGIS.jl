@@ -15,7 +15,7 @@ function __init__()
             break
         end
     end
-    isnothing(qgis_process) && @warn("qgis_process not found.  You must explicitly set `QGIS.set_qgis_process_path(\"path/to/qgis_process\")`.")
+    isempty(qgis_process) && @warn("qgis_process not detected.  You must explicitly set `QGIS.set_qgis_process_path(\"path/to/qgis_process\")`.")
 end
 
 function set_qgis_process_path(path::String)
