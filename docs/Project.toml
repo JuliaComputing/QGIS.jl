@@ -1,0 +1,6 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+GeoInterfaceRecipes = "0329782f-3d07-4b52-b9f6-d3137cf03c7a"
+GeoJSON = "61d90e0f-e114-555e-ac52-39dfb47a3ef9"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+QGIS = "f157c2ba-572d-4438-a710-d9db9a9b13c0"
