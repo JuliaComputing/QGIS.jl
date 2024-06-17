@@ -24,7 +24,10 @@ function __init__(x::String = "")
                 "/usr/bin/qgis_process",
                 "/usr/local/bin/qgis_process",
                 Sys.which("qgis_process"),
-                "/Applications/QGIS.app/Contents/MacOS/bin/qgis_process"
+                "/Applications/QGIS.app/Contents/MacOS/bin/qgis_process",
+                # Windows: Search for highest version first (current is 3.36)
+                joinpath("C:", "OSGeo4W64", "apps", "qgis", "bin", "qgis_process.exe"),
+                [joinpath("C:", "Program Files", "QGIS 3.$i", "bin", "qgis_process.exe") for i in 50:-1:1]
             ]
             !isnothing(path) && isfile(path) && (__init__(path); break)
         end
