@@ -21,6 +21,7 @@ jobs:
           sudo apt update
           sudo apt install -y gnupg software-properties-common
           sudo wget -O /etc/apt/keyrings/qgis-archive-keyring.gpg https://download.qgis.org/downloads/qgis-archive-keyring.gpg
+          touch /etc/apt/sources.list.d/qgis.sources
           sudo cat << EOF > /etc/apt/sources.list.d/qgis.sources
           Types: deb deb-src
           URIs: https://qgis.org/debian
