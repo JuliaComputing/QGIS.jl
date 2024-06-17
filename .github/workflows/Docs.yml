@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install QGIS
         run: |
+          /etc/apt/sources.list.d/qgis.sources >> https://ubuntu.qgis.org/ubuntu/
           sudo apt update
           sudo apt install qgis python3-qgis qgis-plugin-grass
           export QT_QPA_PLATFORM=offscreen
