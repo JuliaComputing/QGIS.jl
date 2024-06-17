@@ -6,7 +6,7 @@ using JSON3, GeoInterface, DataFrames
 check_algorithm(x) = Symbol(x) in df.algorithm ? true : error("Algorithm `$x` not found.")
 
 #-----------------------------------------------------------------------------# __init__
-qgis_process::String = ""  # Path to qgis_process
+qgis_process::String = get(ENV, "QGIS_PROCESS_PATH", "")  # Path to qgis_process
 list::JSON3.Object{Base.CodeUnits{UInt8, String}, Vector{UInt64}} = JSON3.read("{}")
 
 """
