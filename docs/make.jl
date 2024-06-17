@@ -12,4 +12,4 @@ makedocs(
     pages=["index.md", "tutorial.md", "api.md"]
 )
 
-deploydocs(repo="https://github.com/joshday/QGIS.jl")
+deploydocs(repo="https://github.com/JuliaComputing/QGIS.jl")

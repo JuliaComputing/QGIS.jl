@@ -65,8 +65,7 @@ alg = QGIS.Algorithm("native:buffer", DISTANCE=0.1)
 ```
 
 !!! info "Running Algorithms"
-    - `QGIS.Algorithm`s are callable and accepts optional input/output arguments to override the
-    `INPUT` and `OUTPUT` parameters.  Note that these arguments refer to **file paths**.
+    - `QGIS.Algorithm`s are callable and accepts optional input/output arguments to override the `INPUT` and `OUTPUT` parameters.  Note that these arguments refer to **file paths**.
 
 ```@repl tutorial
 output = alg(GeoJSON.write(tempname() * ".geojson", nc))
