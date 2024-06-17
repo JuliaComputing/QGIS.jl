@@ -19,6 +19,7 @@ df::DataFrame = DataFrame()  # algorithm metadata
 function __init__(x::String = "")
     ENV["QT_QPA_PLATFORM"] = "offscreen"
     if isfile(x)
+        @info "qgis_process found: `$x`"
         global qgis_process = x
     else
         for path in [

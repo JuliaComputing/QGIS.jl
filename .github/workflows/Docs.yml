@@ -19,7 +19,7 @@ jobs:
       - name: Install QGIS
         run: |
           sudo apt update
-          sudo apt install qgis qgis-python qgis-plugin-grass
+          sudo apt install qgis python3-qgis qgis-plugin-grass
           export QT_QPA_PLATFORM=offscreen
       - uses: julia-actions/setup-julia@v2
         with:
