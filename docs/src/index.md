@@ -4,4 +4,18 @@
 
 ## Setup
 
-1. To install QGIS.jl, run
+To install QGIS.jl, run:
+
+```julia
+using Pkg
+
+Pkg.add("QGIS")
+```
+
+## Getting Started
+
+To load the QGIS package, run
+
+```julia
+using QGIS
+```
