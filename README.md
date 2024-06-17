@@ -1,5 +1,5 @@
 [![CI](https://github.com/JuliaComputing/QGIS.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/JuliaComputing/QGIS.jl/actions/workflows/CI.yml)
-[![DOCS](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliacomputing.github.io/QGIS.jl/dev)
+[![DOCS](https://img.shields.io/badge/docs-latest-blue.svg)](https://juliacomputing.github.io/QGIS.jl/dev)
 
 # QGIS
 
