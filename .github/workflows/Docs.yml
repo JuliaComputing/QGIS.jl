@@ -20,7 +20,7 @@ jobs:
         run: |
           sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
           sudo apt-get update
-          sudo apt-get install python-qgis qgis-plugin-grass
+          sudo apt-get install qgis qgis-plugin-grass
       - uses: julia-actions/setup-julia@v2
         with:
           version: '1'
