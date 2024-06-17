@@ -17,6 +17,7 @@ A `DataFrame` containing the metadata for all available QGIS algorithms.
 df::DataFrame = DataFrame()  # algorithm metadata
 
 function __init__(x::String = "")
+    ENV["QT_QPA_PLATFORM"] = "offscreen"
     if isfile(x)
         global qgis_process = x
     else
