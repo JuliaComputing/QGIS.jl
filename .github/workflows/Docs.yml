@@ -18,7 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install QGIS
         run: |
-          sudo apt-get install qgis
+          sudo apt update
+          sudo apt install qgis
           export QT_QPA_PLATFORM=offscreen
       - uses: julia-actions/setup-julia@v2
         with:
