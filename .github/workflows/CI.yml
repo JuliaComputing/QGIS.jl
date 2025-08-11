@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install QGIS
         run: |
           sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
